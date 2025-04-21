@@ -1,0 +1,186 @@
+/* General */
+html, body {
+    height: 100%; /* Asegura que el HTML y el body ocupen toda la altura de la ventana */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    line-height: 1.6;
+    background-color: #ffffff; /* Fondo blanco por defecto (modo día) */
+    color: #000000; /* Texto negro por defecto (modo día) */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave entre modos */
+}
+
+header {
+    display: flex; /* Usa flexbox para organizar los elementos horizontalmente */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    background: #333;
+    color: #fff;
+    padding: 1rem; /* Espaciado interno */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave entre modos */
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%; /* Asegura que no ocupe más espacio del necesario */
+}
+
+header .logo {
+    max-height: 50px; /* Ajusta la altura máxima del logotipo */
+    width: auto; /* Mantiene la proporción del logotipo */
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+/* Barra de navegación */
+nav {
+    flex: 1; /* Permite que el nav ocupe el espacio disponible */
+    display: flex; /* Asegura que el contenido del nav esté alineado horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: flex-start; /* Mueve la barra de navegación hacia la izquierda */
+    padding-left: 25rem; /* Ajusta la posición hacia la derecha desde el borde izquierdo */
+}
+
+nav ul {
+    display: flex; /* Organiza los elementos de la lista horizontalmente */
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem; /* Reduce el espacio entre los enlaces */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    padding: 0.5rem 0.75rem; /* Reduce el espaciado interno */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+nav ul li a:hover {
+    color: #ddd; /* Cambia el color al pasar el cursor */
+}
+
+/* Botón de alternar tema */
+.theme-toggle-btn {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.5rem; /* Tamaño del ícono */
+    color: #fff; /* Color blanco para el ícono */
+    display: flex; /* Asegura que el ícono esté centrado */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, color 0.3s; /* Transición suave para el efecto hover */
+    margin-left: 0.5rem; /* Espaciado a la izquierda del botón */
+}
+
+/* Efecto hover */
+.theme-toggle-btn:hover {
+    transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    margin-top: auto; /* Empuja el footer hacia abajo si el contenido es insuficiente */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave entre modos */
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s; /* Transición suave entre modos */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el modo noche */
+body.night-mode {
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+header.night-mode, footer.night-mode {
+    background-color: #000000; /* Fondo más oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+body.night-mode .nav-link {
+    color: #ffffff; /* Enlaces blancos en modo noche */
+}
+
+body .nav-link {
+    color: #000000; /* Enlaces negros en modo día */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s; /* Transición suave entre modos */
+}
+
+body.night-mode .card {
+    background-color: #1e1e1e; /* Fondo oscuro para las tarjetas */
+    color: #ffffff; /* Texto blanco para las tarjetas */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    transition: color 0.3s; /* Transición suave entre modos */
+}
+
+body.night-mode .card-text {
+    color: #cccccc; /* Texto más claro en modo noche */
+}
+
+/* Centrar la cuarta carta en la segunda fila */
+#services-list > div:nth-child(4) {
+    grid-column: 2 / 3; /* Coloca la cuarta carta en la segunda columna */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    header .logo {
+        max-height: 40px; /* Reduce el tamaño del logotipo en pantallas pequeñas */
+        margin: 0 auto; /* Centra el logotipo */
+        display: block;
+    }
+
+    nav {
+        margin-top: 1rem; /* Espaciado entre el logotipo y la barra de navegación */
+        justify-content: flex-start; /* Mueve la barra de navegación hacia la izquierda */
+        padding-left: 1rem; /* Ajusta la posición hacia la derecha en pantallas pequeñas */
+    }
+
+    nav ul {
+        flex-direction: column; /* Alinea los enlaces verticalmente */
+        text-align: left; /* Alinea los enlaces a la izquierda */
+    }
+}
